@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import type { FeedItem } from '../types';
 import ImageCarousel from './ImageCarousel';
+import '../styles/Profile.css';
 
 interface ProfileCardProps {
     profileData: FeedItem;

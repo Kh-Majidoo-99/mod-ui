@@ -3,6 +3,7 @@ import type { FeedItem } from '../types';
 import FeedCard from './FeedCard'; // Import the new FeedCard component
 import { useNavigate, useLocation } from 'react-router-dom';
 import bannerImage from '../assets/banner.jpg';
+import '../styles/Feed.css';
 // import CharacterList from './CharacterList'; // Import the CharacterList component
 
 
@@ -106,10 +107,9 @@ const Feed = ({ showNsfw }: FeedProps) => { // Removed onItemSelect from props
         <div className="banner-container">
           <img src={bannerImage} alt="ZZZ Banner" className="feed-banner" />
         </div>
-        <h1>Scrollable Feed</h1>
         <div className="feed-list">
           {items.map((item) => (
-            <FeedCard key={item.id} item={item} onNavigate={() => navigate(`/mod/${item.id}`)} showNsfw={showNsfw} /> // Pass navigate and showNsfw
+            <FeedCard key={item.id} item={item} onNavigate={() => window.open(`/mod/${item.id}`, '_blank')} showNsfw={showNsfw} /> // Pass navigate and showNsfw
           ))}
         </div>
         {loading && <div className="loading-indicator">Loading more...</div>}

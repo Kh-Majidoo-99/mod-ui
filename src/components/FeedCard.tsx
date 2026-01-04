@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import nsfwPlaceholder from '../assets/nsfw.jpg';
 import type { FeedItem } from '../types';
+import '../styles/Card.css';
 
 interface FeedCardProps {
   item: FeedItem;

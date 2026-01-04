@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { FeedItem } from '../types';
 import ProfileCard from './ProfileCard';
 import { useParams, useNavigate } from 'react-router-dom'; // Import useParams and useNavigate
+import '../styles/Feed.css';
 
 const CardProfile = () => { // Remove id and goBack from props
   const { id } = useParams<{ id: string }>(); // Get id from URL params

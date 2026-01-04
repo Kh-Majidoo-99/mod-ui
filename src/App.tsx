@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './styles/App.css';
+import './styles/pages/App.css';
 import Feed from './components/Feed';
 import CardProfile from './components/CardProfile'; // Import CardProfile
 import Search from './components/Search';
