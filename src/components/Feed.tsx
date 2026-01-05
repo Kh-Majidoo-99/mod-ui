@@ -22,6 +22,15 @@ const Feed = ({ showNsfw }: FeedProps) => { // Removed onItemSelect from props
   const [hasMore, setHasMore] = useState(true);
 
   const searchQuery = new URLSearchParams(location.search).get('q') || '';
+  const categoryParam = new URLSearchParams(location.search).get('category');
+
+  useEffect(() => {
+    if (categoryParam) {
+      setFilter(categoryParam);
+    } else {
+      setFilter('mod');
+    }
+  }, [categoryParam]);
 
   const fetchFeed = (pageNum: number, currentFilter: string) => {
     if (loading || !hasMore) return;
@@ -42,7 +51,7 @@ const Feed = ({ showNsfw }: FeedProps) => { // Removed onItemSelect from props
           return;
         }
 
-        const filteredRecords = currentFilter
+        const filteredRecords = currentFilter && currentFilter !== 'all'
           ? records.filter((item: any) => item._sModelName.toLowerCase() === currentFilter.toLowerCase())
           : records;
 
@@ -107,9 +116,28 @@ const Feed = ({ showNsfw }: FeedProps) => { // Removed onItemSelect from props
         <div className="banner-container">
           <img src={bannerImage} alt="ZZZ Banner" className="feed-banner" />
         </div>
+        <div className="breadcrumbs">
+          <span className="breadcrumbs-home" onClick={() => {
+            navigate('/');
+            setFilter('mod');
+          }}>Home</span>
+          {searchQuery && (
+            <>
+              {' > '}
+              <span>Search: "{searchQuery}"</span>
+            </>
+          )}
+          {categoryParam && (
+            <>
+              {' > '}
+              <span className="breadcrumbs-category">{categoryParam}</span>
+            </>
+          )}
+        </div>
+        <h4>Latest Mods</h4>
         <div className="feed-list">
           {items.map((item) => (
-            <FeedCard key={item.id} item={item} onNavigate={() => window.open(`/mod/${item.id}`, '_blank')} showNsfw={showNsfw} /> // Pass navigate and showNsfw
+            <FeedCard key={item.id} item={item} onNavigate={() => navigate(`/mod/${item.id}`)} showNsfw={showNsfw} /> // Pass navigate and showNsfw
           ))}
         </div>
         {loading && <div className="loading-indicator">Loading more...</div>}

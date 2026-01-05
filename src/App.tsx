@@ -1,24 +1,24 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import './styles/pages/App.css';
 import Feed from './components/Feed';
 import CardProfile from './components/CardProfile'; // Import CardProfile
-import Search from './components/Search';
+
 import Author from './components/Author';
+import Sidebar from './components/Sidebar';
 
 function App() {
   const [showNsfw, setShowNsfw] = useState(false);
 
   return (
-    <div>
-      <div className="search-bar-container">
-        <Search showNsfw={showNsfw} onToggleNsfw={() => setShowNsfw(!showNsfw)} />
+    <div className="app-container">
+      <Sidebar showNsfw={showNsfw} onToggleNsfw={() => setShowNsfw(!showNsfw)} />
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Feed showNsfw={showNsfw} />} />
+          <Route path="/mod/:id" element={<CardProfile />} />
+          <Route path="/author/:id" element={<Author />} />
+        </Routes>
       </div>
-      <Routes>
-        <Route path="/" element={<Feed showNsfw={showNsfw} />} />
-        <Route path="/mod/:id" element={<CardProfile />} />
-        <Route path="/author/:id" element={<Author />} />
-      </Routes>
     </div>
   );
 }

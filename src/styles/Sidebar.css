@@ -1,0 +1,127 @@
+.sidebar {
+    width: 240px;
+    font-size: 14px;
+    background-color: var(--card-bg, #1a1a1a);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    color: #fff;
+}
+
+.sidebar-section {
+    margin-bottom: 10px;
+}
+
+.sidebar-section h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-btn {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.auth-btn.login {
+    background-color: transparent;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+.auth-btn.login:hover {
+    border-color: #666;
+    background-color: #333;
+}
+
+.auth-btn.signup {
+    background-color: #f1c40f;
+    color: #000;
+}
+
+.auth-btn.signup:hover {
+    background-color: #d4ac0d;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-links li {
+    margin-bottom: 5px;
+}
+
+.sidebar-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+    padding: 5px 0;
+}
+
+.sidebar-links a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+/* Toggle Switch */
+.toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-slider {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background-color: #333;
+    border-radius: 24px;
+    transition: .3s;
+}
+
+.toggle-slider:before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.toggle-input:checked+.toggle-slider {
+    background-color: #dc3545;
+    /* Red for NSFW */
+}
+
+.toggle-input:checked+.toggle-slider:before {
+    transform: translateX(20px);
+}

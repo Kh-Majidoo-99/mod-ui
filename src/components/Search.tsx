@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import '../styles/Search.css';
 import { useNavigate } from 'react-router-dom';
 
-interface SearchProps {
-  showNsfw?: boolean;
-  onToggleNsfw?: () => void;
-}
+interface SearchProps { }
 
-const Search: React.FC<SearchProps> = ({ showNsfw, onToggleNsfw }) => {
+const Search: React.FC<SearchProps> = () => {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
@@ -22,7 +19,7 @@ const Search: React.FC<SearchProps> = ({ showNsfw, onToggleNsfw }) => {
   };
 
   return (
-    <div className="search-container" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+    <div className="search-container">
       <input
         type="text"
         value={query}
@@ -31,22 +28,8 @@ const Search: React.FC<SearchProps> = ({ showNsfw, onToggleNsfw }) => {
         placeholder="Search for mods..."
         className="search-input"
       />
-      <button onClick={handleSearchClick} className="search-button">
-        Search
-      </button>
-      {onToggleNsfw && (
-        <button
-          onClick={onToggleNsfw}
-          className="search-button"
-          style={{
-            backgroundColor: showNsfw ? '#dc3545' : '#6c757d',
-            width: 'auto',
-            padding: '0 15px'
-          }}
-        >
-          {showNsfw ? 'Hide NSFW' : 'Show NSFW'}
-        </button>
-      )}
+
+
     </div>
   );
 };

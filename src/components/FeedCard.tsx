@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import nsfwPlaceholder from '../assets/nsfw.jpg';
+// import nsfwPlaceholder from '../assets/nsfw.jpg';
+import nsfwPlaceholder from '../assets/images/July_2024_Calendar_Wallpaper_29.jpeg';
 import type { FeedItem } from '../types';
 import '../styles/Card.css';
 

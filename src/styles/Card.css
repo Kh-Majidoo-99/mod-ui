@@ -13,6 +13,7 @@
     border: none;
     border-radius: 12px;
     overflow: hidden;
+    font-size: 14px;
 }
 
 .feed-card:hover {
@@ -25,7 +26,7 @@
     height: 200px;
     object-fit: cover;
     border-radius: 12px;
-    filter: grayscale(75%);
+    filter: grayscale(20%);
     transition: filter 0.3s ease;
 }
 
