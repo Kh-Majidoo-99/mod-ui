@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import type { FeedItem } from '../types';
 import FeedCard from './FeedCard'; // Import the new FeedCard component
 import { useNavigate, useLocation } from 'react-router-dom';
-import bannerImage from '../assets/banner.jpg';
+import bannerImage from '../assets/banner2.jpg';
 import '../styles/Feed.css';
 // import CharacterList from './CharacterList'; // Import the CharacterList component
 
@@ -36,7 +36,7 @@ const Feed = ({ showNsfw }: FeedProps) => { // Removed onItemSelect from props
     if (loading || !hasMore) return;
     setLoading(true);
 
-    let url = `https://gamebanana.com/apiv11/Game/19567/Subfeed?_sSort=default&_nPage=${pageNum}`;
+    let url = `https://gamebanana.com/apiv11/Game/21842/Subfeed?_sSort=default&_nPage=${pageNum}`;
     if (searchQuery) {
       url += `&_sName=${searchQuery}`;
     }
@@ -137,7 +137,7 @@ const Feed = ({ showNsfw }: FeedProps) => { // Removed onItemSelect from props
         <h4>Latest Mods</h4>
         <div className="feed-list">
           {items.map((item) => (
-            <FeedCard key={item.id} item={item} onNavigate={() => navigate(`/mod/${item.id}`)} showNsfw={showNsfw} /> // Pass navigate and showNsfw
+            <FeedCard key={item.id} item={item} showNsfw={showNsfw} /> // Pass showNsfw
           ))}
         </div>
         {loading && <div className="loading-indicator">Loading more...</div>}

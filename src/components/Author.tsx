@@ -93,7 +93,7 @@ const Author = () => {
                 </button>
                 <div className="feed-list">
                     {items.map((item) => (
-                        <FeedCard key={item.id} item={item} onNavigate={() => navigate(`/mod/${item.id}`)} />
+                        <FeedCard key={item.id} item={item} />
                     ))}
                 </div>
                 {loading && <div className="loading-indicator">Loading more...</div>}

@@ -36,6 +36,7 @@ const Sidebar: React.FC<SidebarProps> = ({ showNsfw, onToggleNsfw }) => {
                 <h3>Categories</h3>
                 <ul className="sidebar-links">
                     <li><Link to="/">All Mods</Link></li>
+                    <li><Link to="/favorites">Favorites</Link></li>
                     <li><Link to="/?category=characters">Characters</Link></li>
                     <li><Link to="/?category=weapons">Weapons</Link></li>
                     <li><Link to="/?category=ui">UI</Link></li>
